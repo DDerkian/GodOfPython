@@ -1,0 +1,131 @@
+from pytube import YouTube
+from tkinter import *
+from threading import Thread
+import os
+
+#from tkinter import ttk
+#import time
+
+def threading():
+    t1 = Thread(target=downloader)
+    t1.start()
+
+
+def threading2():
+    t1 = Thread(target=downloader2)
+    t1.start()
+
+
+def threading3():
+    t1 = Thread(target=downloader3)
+    t1.start()
+
+
+def threading4():
+    t1 = Thread(target=downloader4)
+    t1.start()
+
+
+def threading5():
+    t1 = Thread(target=downloader5)
+    t1.start()
+
+
+def downloader():
+    url = YouTube(str(inp.get()))
+    video = url.streams.filter(only_audio=True).first()
+    video.download()
+    destination = ()
+    out_file = video.download(output_path=destination)
+    base, ext = os.path.splitext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    Label(janela, text='Baixado', font='arial 15').grid(column=0, row=9)
+
+
+def downloader2():
+    url = YouTube(str(inp2.get()))
+    video = url.streams.filter(only_audio=True).first()
+    video.download()
+    destination = ()
+    out_file = video.download(output_path=destination)
+    base, ext = os.path.splitext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    Label(janela, text='Baixado', font='arial 15').grid(column=0, row=9)
+
+
+def downloader3():
+    url = YouTube(str(inp3.get()))
+    video = url.streams.filter(only_audio=True).first()
+    video.download()
+    destination = ()
+    out_file = video.download(output_path=destination)
+    base, ext = os.path.splitext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    Label(janela, text='Baixado', font='arial 15').grid(column=0, row=9)
+
+
+def downloader4():
+    url = YouTube(str(inp4.get()))
+    video = url.streams.filter(only_audio=True).first()
+    video.download()
+    destination = ()
+    out_file = video.download(output_path=destination)
+    base, ext = os.path.splitext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    Label(janela, text='Baixado', font='arial 15').grid(column=0, row=9)
+
+def downloader5():
+    url = YouTube(str(inp5.get()))
+    video = url.streams.filter(only_audio=True).first()
+    video.download()
+    destination = ()
+    out_file = video.download(output_path=destination)
+    base, ext = os.path.splitext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    Label(janela, text='Baixado', font='arial 15').grid(column=0, row=9)
+
+
+janela = Tk()
+janela.title('God Of YouTube Audio Downloader - No AD Version')
+janela.geometry('470x500')
+janela.resizable(0, 0)
+janela.config(background='#dde')
+inp = StringVar()
+inp2 = StringVar()
+inp3 = StringVar()
+inp4 = StringVar()
+inp5 = StringVar()
+imgLogo = PhotoImage(file='youtube.gif')
+
+imagem_logo = Label(janela, image=imgLogo).grid(column=0, row=0, pady=20)
+
+cole_aqui = Label(janela, text='Cole aqui, seu link!', font='arial 15 bold', background='#dde')
+cole_aqui.grid(column=0, row=1, pady=5)
+
+entrada_download = Entry(janela, width=50, textvariable=inp)
+entrada_download.grid(column=0, row=2, padx=82, pady=3)
+
+entrada_download2 = Entry(janela, width=50, textvariable=inp2)
+entrada_download2.grid(column=0, row=4, padx=82, pady=3)
+
+entrada_download3 = Entry(janela, width=50, textvariable=inp3)
+entrada_download3.grid(column=0, row=5, padx=82, pady=3)
+
+entrada_download4 = Entry(janela, width=50, textvariable=inp4)
+entrada_download4.grid(column=0, row=6, padx=82, pady=3)
+
+entrada_download5 = Entry(janela, width=50, textvariable=inp5)
+entrada_download5.grid(column=0, row=7, padx=82, pady=3)
+
+botao_download = Button(janela, text='Baixar', width=20, height=1,
+                        command=lambda: [threading(), threading2(), threading3(), threading4(), threading5()])
+botao_download.grid(column=0, row=8, pady=20)
+
+identif = Label(janela, text='@God Of Python', font='arial 8 bold').place(x=375, y=470)
+
+janela.mainloop()
